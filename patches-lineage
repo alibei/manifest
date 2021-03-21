@@ -1,0 +1,7 @@
+#!/bin/bash
+source build/envsetup.sh
+
+# Fod patches
+repopick 294910
+repopick 295969
+repopick 302898
