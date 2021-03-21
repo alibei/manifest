@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <project name="alibei/android_device_xiaomi_tucana-oss-twrp" path="device/xiaomi/tucana" remote="github" revision="android-9.0" />
+</manifest>
