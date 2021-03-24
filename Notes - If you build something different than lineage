@@ -1,5 +1,6 @@
 1. Purge livedisplay
-2. If you get this error:
+2. Purge trust HAL
+3. If you get this error:
 
 hardware/qcom-caf/sm8150/audio/hal/audio_extn/audio_amplifier.c:132:27: error: no member named 'set_feedback' in 'struct amplifier_device'
     if (amp.hw && amp.hw->set_feedback)
