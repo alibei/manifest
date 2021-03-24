@@ -1,0 +1,12 @@
+1. Purge livedisplay
+2. If you get this error:
+
+hardware/qcom-caf/sm8150/audio/hal/audio_extn/audio_amplifier.c:132:27: error: no member named 'set_feedback' in 'struct amplifier_device'
+    if (amp.hw && amp.hw->set_feedback)
+                  ~~~~~~  ^
+hardware/qcom-caf/sm8150/audio/hal/audio_extn/audio_amplifier.c:133:24: error: no member named 'set_feedback' in 'struct amplifier_device'
+        return amp.hw->set_feedback(amp.hw, amp.adev, devices, enable);
+               ~~~~~~  ^
+2 errors generated.
+
+then apply this patch https://review.arrowos.net/c/ArrowOS/android_hardware_libhardware/+/10901 (Thx Franz Lopez)
