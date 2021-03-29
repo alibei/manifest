@@ -17,7 +17,7 @@ If you build something different than lineage please do the following:
 If your compiling fails with error: no member named 'set_feedback' in 'struct amplifier_device' please apply this patch:      
  - https://review.arrowos.net/c/ArrowOS/android_hardware_libhardware/+/10901 (Thx Franz Lopez)
 
-If you are building with included gapps you may have to do this if you have not enough space in /product:
+If you are building and getting the error that you don't have enough space in /product:
 
 You have to revert the /cust to /product patch. Here is the commit:
  - https://github.com/alibei/android_kernel_xiaomi_sm6150-oss/commit/6f20f6d4d89dee04a8acf0bae7687316acdeb96d
