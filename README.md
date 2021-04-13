@@ -8,7 +8,8 @@ use the manifest-twrp.xml as your manifest for twrp.
 Patches!
 
 If you build lineage then apply the patches in the patches-lineage file. You can also use them if ROM does
-not contain them.
+not contain them. If your ROM does not contain them you have to patch it manually or you leave them out because
+they are not needed for a working FOD.
 
 If you build something different than lineage please do the following:
  - Remove LiveDisplay
