@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="github" fetch="https://github.com"/>
+  <remote name="gitlab" fetch="https://gitlab.com"/>
+  <project name="alibei/android_device_xiaomi_tucana-oss" path="device/xiaomi/tucana" remote="github" revision="CipherOS-R"/>
+  <project name="alibei/android_device_xiaomi_sm6150-common-oss" path="device/xiaomi/sm6150-common" remote="github" revision="CipherOS-R"/>
+  <project name="alibei/android_kernel_xiaomi_sm6150-oss" path="kernel/xiaomi/sm6150" remote="github" revision="lineage-18.1"/>
+  <project name="alibei/android_vendor_xiaomi-oss" path="vendor/xiaomi" remote="gitlab" revision="lineage-18.1"/>
+  <project name="alibei/android_hardware_xiaomi" path="hardware/xiaomi" remote="github" revision="lineage-18.1"/>
+  <project name="LineageOS/android_vendor_qcom_opensource_healthd-ext" path="vendor/qcom/opensource/healthd-ext" remote="github" revision="lineage-18.1"/>
+</manifest>
