@@ -1,0 +1,75 @@
+From 5567faa289a5d25ab194893c53f2d2ff0b412dee Mon Sep 17 00:00:00 2001
+From: Dil3mm4 <dil3mm4.dev@gmail.com>
+Date: Tue, 1 Jun 2021 15:55:48 +0200
+Subject: [PATCH] SystemUI: Don't show FOD icon/pad keyguard if strong auth is
+ required
+
+Change-Id: I67a1a82b9e40c95621bac2a7d5d1eaf340f6d608
+---
+ .../keyguard/KeyguardSecurityContainer.java     |  7 ++++---
+ .../systemui/biometrics/FODCircleView.java      | 17 +++++++++++++++++
+ 2 files changed, 21 insertions(+), 3 deletions(-)
+
+diff --git a/packages/SystemUI/src/com/android/keyguard/KeyguardSecurityContainer.java b/packages/SystemUI/src/com/android/keyguard/KeyguardSecurityContainer.java
+index 4a72c4eceff..b2283e54bf9 100644
+--- a/packages/SystemUI/src/com/android/keyguard/KeyguardSecurityContainer.java
++++ b/packages/SystemUI/src/com/android/keyguard/KeyguardSecurityContainer.java
+@@ -525,9 +525,10 @@ public class KeyguardSecurityContainer extends FrameLayout implements KeyguardSe
+ 
+         // Consume bottom insets because we're setting the padding locally (for IME and navbar.)
+         int inset;
+-        int minBottomMargin = mHasFod && mUpdateMonitor.isFingerprintDetectionRunning() ?
+-                getResources().getDimensionPixelSize(
+-                        R.dimen.kg_security_container_min_bottom_margin) : 0;
++        int minBottomMargin = mHasFod && !mUpdateMonitor.userNeedsStrongAuth() &&
++                mUpdateMonitor.isFingerprintDetectionRunning() ?
++                        getResources().getDimensionPixelSize(
++                                R.dimen.kg_security_container_min_bottom_margin) : 0;
+ 
+         if (sNewInsetsMode == NEW_INSETS_MODE_FULL) {
+             int bottomInset = insets.getInsetsIgnoringVisibility(systemBars()).bottom;
+diff --git a/packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java b/packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java
+index b8d19392c14..47e57466c84 100644
+--- a/packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java
++++ b/packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java
+@@ -155,6 +155,11 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
+             new IFingerprintInscreenCallback.Stub() {
+         @Override
+         public void onFingerDown() {
++            if (mUpdateMonitor.userNeedsStrongAuth()) {
++                // Keyguard requires strong authentication (not biometrics)
++                return;
++            }
++
+             if (mFodGestureEnable && !mScreenTurnedOn) {
+                 if (mDozeEnabled) {
+                     mHandler.post(() -> mContext.sendBroadcast(new Intent(DOZE_INTENT)));
+@@ -283,6 +288,13 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
+             mScreenTurnedOn = true;
+         }
+ 
++        @Override
++        public void onStrongAuthStateChanged(int userId) {
++            if (mUpdateMonitor.userNeedsStrongAuth()) {
++                hide();
++            }
++        }
++
+         @Override
+         public void onBiometricHelp(int msgId, String helpString,
+                 BiometricSourceType biometricSourceType) {
+@@ -589,6 +601,11 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
+     }
+ 
+     public void show() {
++        if (mUpdateMonitor.userNeedsStrongAuth()) {
++            // Keyguard requires strong authentication (not biometrics)
++            return;
++        }
++
+         if (!mUpdateMonitor.isScreenOn() && !mFodGestureEnable) {
+             // Keyguard is shown just after screen turning off
+             return;
+-- 
+2.31.1
+
