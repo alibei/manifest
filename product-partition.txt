@@ -1,0 +1,17 @@
+If you are building and getting the error that you don't have enough space in /product:
+
+You have to revert the /cust to /product patch. Here is the commit:
+ - https://github.com/alibei/android_kernel_xiaomi_sm6150-oss/commit/6f20f6d4d89dee04a8acf0bae7687316acdeb96d
+
+You have to remove the following in the sm6150-common tree:
+
+In BoardConfig.mk remove the lines:
+ - BOARD_PRODUCTIMAGE_PARTITION_SIZE := 872415232
+ - BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+ - TARGET_COPY_OUT_PRODUCT := product
+
+In fstab.com (default and emmc folder) remove the line:
+ - /dev/block/bootdevice/by-name/cust
+
+You have to remove the following in the twrp device tree:
+ - in recovery.fstab remove the line:  /product       ext4    /dev/block/bootdevice/by-name/cust

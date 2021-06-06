@@ -1,0 +1,24 @@
+Patches for Audio (Thx Franz Lopez)
+
+https://review.arrowos.net/c/ArrowOS/android_hardware_libhardware/+/10901
+
+
+Patches for FOD
+
+https://github.com/CipherOS/android_frameworks_base/commit/0e0a8035251019637d1516d46fac9724d7bc5216
+https://github.com/CipherOS/android_frameworks_base/commit/4db4b5009effe9e20664c08aac4432f14dc1645a
+https://github.com/CipherOS/android_frameworks_base/commit/57d79f3ac196664b01c49342e8de7f20445ed316
+https://github.com/CipherOS/android_frameworks_base/commit/483100faa05311e199b8205f2310a9a493a8184e
+https://github.com/CipherOS/android_frameworks_base/commit/77ff201ea17b8a245a9452edb09d5256417271b0
+https://github.com/CipherOS/android_frameworks_base/commit/9c605806f44dfc13b0902e600614338210a030f5
+
+
+Patches for gestures
+
+https://github.com/CipherOS/android_frameworks_native/commit/ae8fbd3cc4a82825930852ae4841ce214187b966
+https://github.com/CipherOS/android_frameworks_native/commit/d1a66a8b0fbf823bd9af56fd3dcb494c53a72f18
+https://github.com/CipherOS/android_frameworks_native/commit/473421ab4e7d545ce03247eb6261e92a835a21f4
+https://github.com/CipherOS/android_frameworks_native/commit/04d8bb54b9119cf15f0acf7dc762dc71a676539c
+
+This patch maybe needs to get adjusted:
+https://github.com/CipherOS/android_vendor_cipher/commit/20ae7eaacf6e2a0e4fd8bf11716cd3a5cf4b0ea7
