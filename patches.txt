@@ -11,6 +11,8 @@ https://github.com/CipherOS/android_frameworks_base/commit/57d79f3ac196664b01c49
 https://github.com/CipherOS/android_frameworks_base/commit/483100faa05311e199b8205f2310a9a493a8184e
 https://github.com/CipherOS/android_frameworks_base/commit/77ff201ea17b8a245a9452edb09d5256417271b0
 https://github.com/CipherOS/android_frameworks_base/commit/9c605806f44dfc13b0902e600614338210a030f5
+https://github.com/CipherOS/android_frameworks_base/commit/f9aeed306f6e3d8f5e1fe1862c99af7d753da878
+https://github.com/CipherOS/android_frameworks_base/commit/827940119e673831666444bc93491698a6a7aa4e
 
 
 Patches for gestures
