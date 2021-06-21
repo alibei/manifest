@@ -1,4 +1,4 @@
-Patches for Audio (Thx Franz Lopez)
+Patch for Audio (Thx Franz Lopez)
 
 https://review.arrowos.net/c/ArrowOS/android_hardware_libhardware/+/10901
 
@@ -24,3 +24,7 @@ https://github.com/CipherOS/android_frameworks_native/commit/04d8bb54b9119cf15f0
 
 This patch maybe needs to get adjusted:
 https://github.com/CipherOS/android_vendor_cipher/commit/20ae7eaacf6e2a0e4fd8bf11716cd3a5cf4b0ea7
+
+
+Patch for vibrator
+https://github.com/CipherOS/android_vendor_qcom_opensource_vibrator/commit/068935c3c9a3eb8ae003e97fbcb0839504a1e8b5
