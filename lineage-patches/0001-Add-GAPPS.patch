@@ -1,0 +1,29 @@
+From 6893f61510a41c57272c6d7f7001d0faebc03a72 Mon Sep 17 00:00:00 2001
+From: alibei <sebastiankotzias83@gmail.com>
+Date: Wed, 16 Jun 2021 13:44:37 +0200
+Subject: [PATCH 1/1] Add GAPPS
+
+Change-Id: Ieacc371a6e7e66e2384986403eb722043f8eb847
+---
+ config/common.mk | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/config/common.mk b/config/common.mk
+index d9493b97..557f27fc 100644
+--- a/config/common.mk
++++ b/config/common.mk
+@@ -197,6 +197,11 @@ PRODUCT_VERSION_MAJOR = 18
+ PRODUCT_VERSION_MINOR = 1
+ PRODUCT_VERSION_MAINTENANCE := 0
+ 
++# Gapps
++ifeq ($(LINEAGE_GAPPS), true)
++    $(call inherit-product, vendor/gapps/common/common-vendor.mk)
++endif
++
+ ifeq ($(TARGET_VENDOR_SHOW_MAINTENANCE_VERSION),true)
+     LINEAGE_VERSION_MAINTENANCE := $(PRODUCT_VERSION_MAINTENANCE)
+ else
+-- 
+2.32.0
+
